@@ -120,7 +120,14 @@
                   Some quick example text to build on the card title and make up the bulk of the
                   card's content.
                 </p>
-<div style="background: red" markdown=1>  Testing **Markdown** inside a red-background div.  </div>
+<!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+
+<!-- Load the element definition -->
+<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+<!-- Simply set the `src` attribute to your MD file and win -->
+<zero-md src="README.md"></zero-md>
                   <a href="https://github.com/Muhayyuddin/MyBlog/blob/main/index.md" class="btn btn-primary">Read</a>
               </div>
             </div>
