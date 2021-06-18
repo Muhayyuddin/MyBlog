@@ -1,35 +1,91 @@
 # Installing and setting up Jenkins
 
-This article will explain that how to install and configure Jenkins for the first time use on Ubuntu 20.04. 
+This article will explain how to install and configure Jenkins on Ubuntu 20.04. We will not go into the theoretical details like what is Jenkins? We all know Jenkins is an open source tool for continuous integration and continues delivery. It allows develope the pipeline that automatically build, test, and deploy  software applications.   
 
-### Markdown
+# Dependencies
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+One of the main dependency for installing Jenkine is Java, it required Java 8 or later. We can install openJDK, it is an open source implementation of Java.
 
-```markdown
-Syntax highlighted code block
+```
+sudo apt install openjdk-11-jdk
+```
+an implementation could be varified by typing 
+```
+java -version
+```
+# Installation
 
-# Header 1
-## Header 2
-### Header 3
+Type the following commands in terminal, These commands will add the jenkins package repository keys, append the package repository into the source.list and update apt.
+```
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
 
-- Bulleted
-- List
+```
+After that Jenkins and its dependencies can be installed using the following command
 
-1. Numbered
-2. List
+```
+sudo apt install jenkins
+```
+After installation the jenkins will start automatically. We can verify by typing the following command. 
 
-**Bold** and _Italic_ and `Code` text
+```
+systemctl status jenkins
+```
+It should show the output as shown below. 
 
-[Link](url) and ![Image](src)
+![Jenkins](images/jenkins/jenkinstatus.png)
+
+
+If there is any firewall issue, we will open the port 8080 with ufw using the following command. In terminal type 
+
+```
+sudo ufw allow 8080
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+# Setting up Jenkins
 
-### Jekyll Themes
+Now the Jenkins could be launch in the web browser on the 8080 port, open web browser and type.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Muhayyuddin/TestBlog/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+http://localhost:8080
+```
+The following screen will be displayed
 
-### Support or Contact
+![Jenkins](images/jenkins/J1.png)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+initial administrator password can be obtained using the following command
+
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+you will see a key like this 
+
+```
+d020523a30e9c862b8a62521f1ffdde1256fbfd27ce7a710b400a4a7377acfbc
+```
+Copy the password and paste in the administrator password textbox and click continue. 
+
+The next screen will be appear as shown below
+
+![Jenkins](images/jenkins/J2.png)
+
+Click on the ***install suggested plugins***
+
+A screen will appear as shown below. The Jenkins will automatically install the plugins
+
+![Jenkins](images/jenkins/J3.png)
+
+Once the plugins will be install, it will prompt to create first admin user, as shown below
+
+![Jenkins](images/jenkins/J4.png)
+
+Fill the details and press save and continue. A new screen will be appear that will show the Jenkins URL as shown below, change the URL if you want and click on save and finish.
+
+![Jenkins](images/jenkins/J5.png)
+
+once you finish, you will see the screen like this:
+
+![Jenkins](images/jenkins/J6.png)
+
+Congratulations! Jenkins you have setup jenkins correctly and ready to create the first job.
