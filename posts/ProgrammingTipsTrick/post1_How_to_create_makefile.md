@@ -34,24 +34,24 @@ dish: ingredients
 The example consists of a simple C++ program that has a *main.cpp* file, a *logger.cpp* and a *logger.h*. The *logger* contains a message, *main.cpp* will call logger to print the message the code is given below. 
 
 
-<table style="border: 1px solid white; ">
+<table style="border: 1px solid black; ">
 
-<tr style="border: 1px solid white; ">
-<td style="border: 1px solid white; "> 
+<tr style="border: 1px solid black; ">
+<td style="border: 1px solid black; "> 
 
 #### main.cpp
 </td>
-<td style="border: 1px solid white; "> 
+<td style="border: 1px solid black; "> 
 
 #### logger.cpp
 </td>
-<td style="border: 1px solid white;"> 
+<td style="border: 1px solid black;"> 
 
 #### logger.h
 </td>
 </tr>
-<tr style="border: 1px solid white;">
-<td style="border: 1px solid white; "> 
+<tr style="border: 1px solid black;">
+<td style="border: 1px solid black; "> 
 
 ```cpp 
 #include"logger.h"
@@ -64,7 +64,7 @@ return 0;
 }
 ```
 </td>
-<td style="border: 1px solid white;" >
+<td style="border: 1px solid black;" >
 
   ```cpp
 #include <iostream>
@@ -75,7 +75,7 @@ std::cout<<"Hello, This is a makeFile example."<<std::endl;
 }
 ```
 </td>
-<td style="border: 1px solid white;" >
+<td style="border: 1px solid black;" >
 
  ```cpp
 #ifndef LOGGER_H
