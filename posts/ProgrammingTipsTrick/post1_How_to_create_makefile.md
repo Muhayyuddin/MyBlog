@@ -13,11 +13,13 @@ Make is basically a build automation tool. It is mainly use generate executables
 
 The syntax/structure of the makefile is given below
 
-```makefile
+```c
 target: dependency 
     instruction to build the target
 dependency: sub-dependency 
     instructions to build sub-dependency
+    # generates output file (exe) from main.o and logger.o
+2. output: main.o logger.o 
 ...
 ...
 
@@ -34,7 +36,7 @@ dish: ingredients
 The example consists of a simple C++ program that has a *main.cpp* file, a *logger.cpp* and a *logger.h*. The *logger* contains a message, *main.cpp* will call logger to print the message the code is given below. 
 
 
-<table style="border: 1px solid black; ">
+<table style="border: 1px  black; ">
 
 <tr style="border: 1px solid black; ">
 <td style="border: 1px solid black; "> 
@@ -94,7 +96,7 @@ void message();
 Lets write the makefile for the above code. 
 
 
-```makefile 
+``` Cmake 
 1. # generates output file (exe) from main.o and logger.o
 2. output: main.o logger.o  
 3.    # defines how output file will be generated from main.o and logger.o
@@ -159,7 +161,8 @@ void *PrintHello(void *threadid)
 
 The makefile for above code will be as given below.
 
-```makefile
+``` c++
+# here we will link dependency 
 output: main.o
 	gcc main.o -lpthread -o output
 main.o: main.cpp
