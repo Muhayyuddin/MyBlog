@@ -96,10 +96,10 @@ void message();
 Lets write the makefile for the above code. 
 
 
-``` Cmake 
-1. # generates output file (exe) from main.o and logger.o
+```
+1. # "generates output file (exe) from main.o and logger.o"
 2. output: main.o logger.o  
-3.    # defines how output file will be generated from main.o and logger.o
+3.    # 'defines how output file will be generated from main.o and logger.o'
 4.    g++ main.o logger.o -o output
 5. # generates main.o file from main,cpp  
 6. main.o: main.cpp  
@@ -162,7 +162,7 @@ void *PrintHello(void *threadid)
 The makefile for above code will be as given below.
 
 ``` c++
-# here we will link dependency 
+# "here we will link dependency" 
 output: main.o
 	gcc main.o -lpthread -o output
 main.o: main.cpp
