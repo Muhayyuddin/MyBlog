@@ -130,7 +130,7 @@ In this section we will write a makefile for the program that has external depen
 #include <stdlib.h>
 #define NUM_THREADS 5
 
-void *PrintHello(void *threadid);
+void *message(void *threadid);
 
 int main(int argc, char *argv[])
 {
@@ -138,34 +138,77 @@ int main(int argc, char *argv[])
    int rc;
    long t;
    for(t=0;t< NUM_THREADS;t++){
-     printf("In main: creating thread %ld\n", t);
-     rc = pthread_create(&threads[t], NULL, PrintHello, (void *)t);
+     printf("thread from main: creating thread %ld\n", t);
+     rc = pthread_create(&threads[t], NULL, message, (void *)t);
      if (rc){
        printf("ERROR; return code from pthread_create() is %d\n", rc);
        exit(-1);
        }
      }
-
-   /* Last thing that main() should do */
-   pthread_exit(NULL);
+    pthread_exit(NULL); 
 }
 
-void *PrintHello(void *threadid)
+void *message(void *threadid)
 {
    long tid;
    tid = (long)threadid;
-   printf("Hello World! It's me, thread #%ld!\n", tid);
+   printf("Thread from message: creating thread #%ld!\n", tid);
    pthread_exit(NULL);
 }
 ```
 
-The makefile for above code will be as given below.
+The makefile for above code will be like this;
+
+``` makefile
+1. output: main.o
+2.	gcc main.o -lpthread -o output
+3. main.o: main.cpp
+4.	gcc -c main.cpp 
+5. clean:
+6.	rm *.o output
+```
+Notice *-lpthread*  in line 2 this is basically the flag to link the pthread library. In the similar way we can link as many library as we have in our program.  
+
+## Generic Makefile for C++
+
+The makefile examples that are described above are good for very small programs. However, for large programs it is very time consuming task to type the names of all the c++ and heads in the makefile. if we change the name of the C++ file or add some more files we have to adapt out makefile accordingly. In this section we will try to write a generic makefile for large C++ projects. The code is available on the github under the this link [https://github.com/Muhayyuddin](https://github.com/Muhayyuddin)..
+
+Lets merge the two above explained examples in a single C++ project and split the code into directories. A typical structure of the C++ project is consists of a include directory containing all the head files, a src directory containing all the cpp files and a makefile in the root folder as shown below
+
+![C++ Program](images/programstructure.png)
+
+Our generic *makefile* will pick all the files form include and src directories that have *.h* and *.cpp*/*.C* extensions respectively. Then it will create a build directory that will contains all the generated object files and executable. The generic make file is shown below.
 
 ```makefile
-output: main.o
-	gcc main.o -lpthread -o output
-main.o: main.cpp
-	gcc -c main.cpp 
+# 'specify that the the name of the final executable will be run.out'
+TARGET ?= run.out
+# 'assigning name to the project directories'
+BUILD_DIR ?= ./build
+SRC_DIRS ?= ./src
+INCLUDE_DIRS ?= ./include
+# 'setting up the variables'
+SRCS := $(shell find $(SRC_DIRS) -name *.cpp -or -name *.c)
+OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
+DEPS := $(OBJS:.o=.d)
+
+INC_DIRS := $(shell find $(INCLUDE_DIRS) -type d)
+INC_FLAGS := $(addprefix -I,$(INC_DIRS))
+
+CPPFLAGS ?= $(INC_FLAGS) 
+# 'building target'
+$(BUILD_DIR)/$(TARGET): $(OBJS)
+	g++ $(OBJS) -o $@  -lpthread 
+# 'creating build folder and compiling cpp to obj files'
+$(BUILD_DIR)/%.cpp.o: %.cpp 
+	$(MKDIR_P) $(dir $@)
+	g++ $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@	
 clean:
-	rm *.o output
+	$(RM) -r $(BUILD_DIR)
+MKDIR_P ?= mkdir -p
+
 ```
+The makefile is pretty much self explanatory. The details of the environment variables and regular expressions will be discussed in the other post. 
+Once the project is built it the root folder will contains a build folder containing all the object files and the executable as shown in figure below. 
+
+![makebuild](images/makebuild.png)
+
