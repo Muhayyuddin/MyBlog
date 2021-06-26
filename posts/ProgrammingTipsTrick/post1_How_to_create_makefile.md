@@ -53,7 +53,7 @@ The example consists of a simple C++ program that has a *main.cpp* file, a *logg
 <tr style="border: 1px solid black;">
 <td style="border: 1px solid black; "> 
 
-``` cpp 
+```  
 #include"logger.h"
 #include<cstdlib>
 void main()
@@ -66,7 +66,7 @@ return 0;
 </td>
 <td style="border: 1px solid black;" >
 
-  ``` cpp
+  ``` 
 #include <iostream>
 #include "logger.h"
 void logger::message()
@@ -77,7 +77,7 @@ std::cout<<"Hello, This is a makeFile example."<<std::endl;
 </td>
 <td style="border: 1px solid black;" >
 
- ``` cpp
+ ``` 
 #ifndef LOGGER_H
 #define LOGGER_H
 class logger {
@@ -122,7 +122,7 @@ Notice that the compile instructions are in printed in the reverse order as comp
 ## 3. Makefile for a simple program that has external dependencies
 In this section we will write a makefile for the program that has external dependency on pthread. The code for this simple C++ program is given below. 
 
-``` Cpp
+``` 
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -157,7 +157,7 @@ void *message(void *threadid)
 
 The makefile for above code will be like this;
 
-``` makefile
+``` 
 1. output: main.o
 2.	gcc main.o -lpthread -o output
 3. main.o: main.cpp
