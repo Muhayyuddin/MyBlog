@@ -13,13 +13,11 @@ Make is basically a build automation tool. It is mainly use generate executables
 
 The syntax/structure of the makefile is given below
 
-```c
+``` makefile
 target: dependency 
     instruction to build the target
 dependency: sub-dependency 
     instructions to build sub-dependency
-    # generates output file (exe) from main.o and logger.o
-2. output: main.o logger.o 
 ...
 ...
 
@@ -27,7 +25,7 @@ dependency: sub-dependency
 
 In a general term the structure of the make file could be image as a dish. to prepare a dish we need to know its independents and the recipe. The recipe will explain how to use the indigents to prepare the dish. In this context the makefile will be write as below.
 
-```makefile
+``` makefile
 dish: ingredients
     recipe
 ```
@@ -96,7 +94,7 @@ void message();
 Lets write the makefile for the above code. 
 
 
-``` makefile
+```
 1. # 'generates output file (exe) from main.o and logger.o'
 2. output: main.o logger.o  
 3.    # 'defines how output file will be generated from main.o and logger.o'
@@ -124,7 +122,7 @@ Notice that the compile instructions are in printed in the reverse order as comp
 ## 3. Makefile for a simple program that has external dependencies
 In this section we will write a makefile for the program that has external dependency on pthread. The code for this simple C++ program is given below. 
 
-``` C
+``` Cpp
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -179,7 +177,7 @@ Lets merge the two above explained examples in a single C++ project and split th
 
 Our generic *makefile* will pick all the files form include and src directories that have *.h* and *.cpp*/*.C* extensions respectively. Then it will create a build directory that will contains all the generated object files and executable. The generic make file is shown below.
 
-```makefile
+```
 # 'specify that the the name of the final executable will be run.out'
 TARGET ?= run.out
 # 'assigning name to the project directories'
