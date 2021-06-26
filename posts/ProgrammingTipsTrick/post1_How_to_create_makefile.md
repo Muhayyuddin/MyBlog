@@ -55,7 +55,7 @@ The example consists of a simple C++ program that has a *main.cpp* file, a *logg
 <tr style="border: 1px solid black;">
 <td style="border: 1px solid black; "> 
 
-```cpp 
+``` cpp 
 #include"logger.h"
 #include<cstdlib>
 void main()
@@ -68,7 +68,7 @@ return 0;
 </td>
 <td style="border: 1px solid black;" >
 
-  ```cpp
+  ``` cpp
 #include <iostream>
 #include "logger.h"
 void logger::message()
@@ -79,7 +79,7 @@ std::cout<<"Hello, This is a makeFile example."<<std::endl;
 </td>
 <td style="border: 1px solid black;" >
 
- ```cpp
+ ``` cpp
 #ifndef LOGGER_H
 #define LOGGER_H
 class logger {
@@ -96,20 +96,20 @@ void message();
 Lets write the makefile for the above code. 
 
 
-```
-1. # "generates output file (exe) from main.o and logger.o"
+``` makefile
+1. # 'generates output file (exe) from main.o and logger.o'
 2. output: main.o logger.o  
 3.    # 'defines how output file will be generated from main.o and logger.o'
 4.    g++ main.o logger.o -o output
-5. # generates main.o file from main,cpp  
+5. # 'generates main.o file from main,cpp'  
 6. main.o: main.cpp  
-7.    # defines how main.o file will be generated from main.cpp
+7.    # 'defines how main.o file will be generated from main.cpp'
 8.    g++ -c main.cpp  
-9.  # generates logger.o from logger.cpp and logger.h
+9.  # 'generates logger.o from logger.cpp and logger.h'
 10. logger.o: logger.cpp logger.h 
-11.    # defines how the logger.o will be generated from logger.cpp
+11.    # 'defines how the logger.o will be generated from logger.cpp'
 12.    g++ -c logger.cpp 
-13. # these two lines are describing that when clean will call, remove all object files and output file 
+13. # 'these two lines are describing that when clean will call, remove all object files and output file' 
 14. clean:            
 15.    rm *.o output
 ```
@@ -124,7 +124,7 @@ Notice that the compile instructions are in printed in the reverse order as comp
 ## 3. Makefile for a simple program that has external dependencies
 In this section we will write a makefile for the program that has external dependency on pthread. The code for this simple C++ program is given below. 
 
-``` c++
+``` C
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -161,8 +161,7 @@ void *PrintHello(void *threadid)
 
 The makefile for above code will be as given below.
 
-``` c++
-# "here we will link dependency" 
+```makefile
 output: main.o
 	gcc main.o -lpthread -o output
 main.o: main.cpp
