@@ -6,7 +6,7 @@ This tutorial will provide a very basic overview of makefile with practical exam
 1. Writing makefile for a hello world C++ program.
 2. Writing makefile for a simple program that has external dependencies.
 
-The code for the above program is available here [https://github.com/Muhayyuddin](https://github.com/Muhayyuddin).
+The code for the above program is available here [https://github.com/Muhayyuddin/makefile_examples](https://github.com/Muhayyuddin/makefile_examples).
 ## 1. Concept
 
 Make is basically a build automation tool. It is mainly use generate executables and libraries form the source code. All the instructions to build the code are written in a file called *Makefile*. In this section we will try to understand the basic syntax/structure of the makefile. 
@@ -169,7 +169,7 @@ Notice *-lpthread*  in line 2 this is basically the flag to link the pthread lib
 
 ## Generic Makefile for C++
 
-The makefile examples that are described above are good for very small programs. However, for large programs it is very time consuming task to type the names of all the c++ and heads in the makefile. if we change the name of the C++ file or add some more files we have to adapt out makefile accordingly. In this section we will try to write a generic makefile for large C++ projects. The code is available on the github under the this link [https://github.com/Muhayyuddin](https://github.com/Muhayyuddin)..
+The makefile examples that are described above are good for very small programs. However, for large programs it is very time consuming task to type the names of all the c++ and heads in the makefile. if we change the name of the C++ file or add some more files we have to adapt out makefile accordingly. In this section we will try to write a generic makefile for large C++ projects. The code is available on the github under the this link [https://github.com/Muhayyuddin/makefile_examples](https://github.com/Muhayyuddin/makefile_examples).
 
 Lets merge the two above explained examples in a single C++ project and split the code into directories. A typical structure of the C++ project is consists of a include directory containing all the head files, a src directory containing all the cpp files and a makefile in the root folder as shown below
 
