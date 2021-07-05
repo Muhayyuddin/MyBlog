@@ -1,6 +1,6 @@
 # Docker for beginners 
 
-In this article we will understand a basic overview of docker, docker image, and docker containers. It will also provides the step by step instructions for;
+In this article we will study the basic overview of docker, docker image, and docker containers. It will also provides the step by step instructions for;
 
 1. Create docker image, build and run it in a container.
 2. Push the docker image to docker hub.
