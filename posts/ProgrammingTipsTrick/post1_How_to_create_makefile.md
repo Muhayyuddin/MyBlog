@@ -209,4 +209,3 @@ The makefile is pretty much self explanatory. The details of the environment var
 Once the project is built it the root folder will contains a build folder containing all the object files and the executable as shown in figure below. 
 
 ![makebuild](images/makebuild.png)
-
