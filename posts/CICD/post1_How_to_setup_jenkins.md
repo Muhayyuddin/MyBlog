@@ -88,4 +88,4 @@ once you finish, you will see the screen like this:
 
 ![Jenkins](images/jenkins/J6.png)
 
-Congratulations! Jenkins you have setup jenkins correctly and ready to create the first job.
+Congratulations! you have setup jenkins correctly and ready to create the first build job.

@@ -1,21 +1,21 @@
 # Docker for beginners 
 
-In this article we will understand a basic overview of docker, docker image, and docker containers. It will also provides the step by step instructions for;
+In this article we will study the basic overview of docker, docker image, and docker containers. It will also provides the step by step instructions for;
 
 1. Create docker image, build and run it in a container.
 2. Push the docker image to docker hub.
 
 ## What is docker 
 
-Docker is a framework to build, run, and ship applications in a way that it run in a consistent way on the other machines. 
+Docker is a framework to build, run, and ship applications in a way that it run in a consistent manner on the other machines. 
 
 ## What is docker image
 Docker image contains the instructions and dependencies to build and run the program in an isolated environment.
 
 ## What is docker container
-Docker container is a virtual runtime environment, used to build run and deploy the applications independent from the underlying hardware and operation system.  It can also be considered as a runnable instance of docker image. 
+Docker container is a virtual runtime environment, used to build run and deploy the applications independent from the underlying hardware and operation system.  It can also be considered as a running instance of docker image. 
 # Example C++ Program
-Lets suppose we have a simple C++ program that use Eigen library. The program display an identity rotation matrix on the console using eigen. The code for this program is given below.
+Lets suppose we have a simple C++ program that use Eigen library. The program display an identity rotation matrix on the console. The code for this program is given below.
 
 ``` cpp
 #include <iostream>
@@ -48,7 +48,7 @@ To compile this program, there are three main dependencies that are;
 2. CMake 
 3. Eigen library
 
-We will write the docker image that will use the required operation system as base image. It will install all the required dependencies, Copy the code, build it and finally run the executable. 
+We will write the docker image that will use the required operation system (ubuntu) as base image. It will install all the required dependencies, Copy the code, build it and finally run the executable. 
 
 The docker image is given below. 
 
@@ -84,7 +84,7 @@ The docker image is given below.
 - Line 6 Since the executable is located in the build directory, this directory will be set as working directory.
 - Line 7 will run the executable to display the output on the console.
 
-The code along with the Docker file can be downloaded at [https://github.com/Muhayyuddin/makefile_examples](https://github.com/Muhayyuddin/makefile_examples)
+The code along with the Docker file can be downloaded at [https://github.com/Muhayyuddin/docker_example](https://github.com/Muhayyuddin/docker_example)
 
 The command to build the docker image is given below. The *-t* represents the tag in this case it is *1.0.0* . The **.** at the end represents that the docker file is in the current directory.
 
