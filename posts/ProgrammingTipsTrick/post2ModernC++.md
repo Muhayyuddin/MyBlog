@@ -22,15 +22,17 @@ This post will provides a brief overview of the best practices in Modern C++. Th
 <tr style="border: 1px solid black;">
 <td style="border: 1px solid black; "> 
 
-```  
+``` 
+constexp double GRAVITY = 9.8; 
+
+#define GRAVITY 9.8 
 
 ```
 </td>
 <td style="border: 1px solid black;" >
 
-``` 
+To define constants, use constexp instead of #define
 
-```
 </td>
 
 </tr>
