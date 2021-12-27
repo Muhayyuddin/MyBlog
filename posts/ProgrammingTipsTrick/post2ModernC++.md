@@ -3,40 +3,37 @@
 This post will provides a brief overview of the best practices in Modern C++. The Modern C++ here refers to the improvements that are incorporated in C++11, C++17 or C++20. We will summarized the concepts chapter-wise. The chapter order is similar to the [learnC++.com](www.learnc++.com).
 
 <table style="border: 1px  black; ">
-  <tr>      
-      <td colspan="2" style="border: 1px solid black; ">
-      ## Variables and Constants
-      </td>
-          
-  </tr>
-  <tr style="border: 1px solid black; ">
-      <td style="border: 1px solid black; "> 
-        
-        #### Best Practice
+<tr>
+<td colspan="2" style="border: 1px solid black; "> 
 
-      </td>
+#### Variables and Constants
+</td>
+</tr>
+<tr style="border: 1px solid black; ">
+<td style="border: 1px solid black; "> 
 
-      <td style="border: 1px solid black; "> 
-        
-        #### Comments
+##### Best Practices
+</td>
+<td style="border: 1px solid black; "> 
 
-      </td>     
-  </tr>
-  <tr style="border: 1px solid black;">
-      <td style="border: 1px solid black; "> 
-        
-        ```  
-        constexp double gravity = 9.8; // meter per second ^ 2
-        ```
-      </td>
-      <td style="border: 1px solid black;" >
-        
-        ``` 
-        #define
-        ```
-      </td>
-        
-  </tr>
+##### Comments
+</td>
+</tr>
+<tr style="border: 1px solid black;">
+<td style="border: 1px solid black; "> 
+
+```  
+
+```
+</td>
+<td style="border: 1px solid black;" >
+
+``` 
+
+```
+</td>
+
+</tr>
 </table>
  
 
