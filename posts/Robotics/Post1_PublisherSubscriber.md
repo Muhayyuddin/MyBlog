@@ -21,17 +21,17 @@ The example below is explaining a simple C++ based publisher and subscriber. The
 </td></tr>
 <tr > <td > 
 
-```cpp 
+```
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
 int main(int argc, char **argv)
 {
-  //Initialize the rosnode with the name simple_publisher.
+  //'Initialize the rosnode with the name simple_publisher.'
   ros::init(argc, argv, "simple_publisher");
   
-  //NodeHandle is the main access point to communications with the ROS system.
+  //'NodeHandle is the main access point to communications with the ROS system.'
   ros::NodeHandle n;
 
   //create a publisher with the name simple_publisher that will publish 
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 ```
 </td> <td >
 
-``` cpp
+```
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
@@ -113,7 +113,7 @@ The python version of above explained simple publisher subscriber is given below
 </td></tr>
 <tr > <td > 
 
-```python 
+```
 
 #!/usr/bin/env python
 # importing rospy and string from std_msgs
@@ -153,7 +153,7 @@ if __name__ == '__main__':
 ```
 </td> <td >
 
-``` python
+```
 #!/usr/bin/env python
 # importing rospy and string from std_msgs
 import rospy
@@ -190,7 +190,7 @@ the positions of the spheres and the line is computed using the parametric equat
 
 
 
-```cpp
+```
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
 #include <visualization_msgs/MarkerArray.h>
@@ -278,7 +278,7 @@ The  frame_id is the RViz fixed frame, everything in the code below is self expl
 </td></tr>
 <tr > <td > 
 
-```cpp 
+```
 
 visualization_msgs::Marker createSphere(std::string path_to_model, 
     unsigned int id, std::string frame_id,
@@ -315,7 +315,7 @@ visualization_msgs::Marker createSphere(std::string path_to_model,
 ```
 </td> <td >
 
-``` cpp
+```
 visualization_msgs::Marker createLine(unsigned int id, 
 std::string frame_id, std::vector<geometry_msgs::Point> points, 
                     std::vector<double> color)
